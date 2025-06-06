@@ -39,7 +39,7 @@ void AStarPathfinder::findPath(int startX, int startY, int goalX, int goalY) {
                 maze.markPath(current->x, current->y); // отмечаем путь
 
                 // Очищаем экран и рисуем лабиринт
-                std::cout << "\x1B[2J\x1B[H"; // ANSI очистка экрана
+                std::cout << "\x1B[2J\x1B[H"; // очистка экрана
                 maze.print();
 
                 std::this_thread::sleep_for(std::chrono::milliseconds(100)); // задержка
@@ -53,7 +53,7 @@ void AStarPathfinder::findPath(int startX, int startY, int goalX, int goalY) {
             int nx = current->x + dx[i];
             int ny = current->y + dy[i];
 
-            if (!maze.isWalkable(nx, ny)) continue; // игнорируем стены
+            if (!maze.isWalkable(nx, ny)) continue;
 
             float newG = current->g + 1;
             auto key = std::make_pair(nx, ny);
